@@ -1,0 +1,64 @@
+@import '../../assets/sass/mixin.sass'
+
+*
+    margin: 0
+    padding: 0
+button, input
+    outline: none
+form
+    @include flex(start, start, row, wrap)
+    margin: 0 70px
+
+    .form_group
+        @include flex(start, start, column)
+        flex-basis: 100%
+        margin: 10px 0
+        .input_group
+            width: 100%
+            display: grid
+            grid: 'input input'/50% 50%
+            .input_blok
+                grid-area: 'input'
+                width: auto
+        .input_blok
+            margin: 20px 30px
+            width: calc( 100% - 60px )
+            input, label
+                width: 100%
+            input
+                padding: 10px 5px
+                margin-bottom: 5px
+                font-size: 20px
+                border: 1px solid #b9b8b8
+        p.header 
+            margin-left: 30px
+            font-size: 22px
+            font-weight: 400
+            .required
+                color: red
+                margin-left: 5px
+    button
+        padding: 10px 50px
+        background: white
+        border: 1px solid #85f37b
+        color: #b9b8b8
+        font-size: 22px
+        margin: 30px
+
+@media (max-width:750px)
+    form
+        margin: 10px 30px
+
+@media (max-width:600px)
+    form
+        margin: 0 20px
+        .form_group
+            .input_group
+                @include flex(start, start, column)
+                .input_blok
+                    width: calc( 100% - 60px )
+
+@media ( max-width: 400px )
+    form
+        margin: 10px
+    

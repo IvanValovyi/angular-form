@@ -1,0 +1,23 @@
+@import '../assets/sass/mixin.sass'
+
+*
+    margin: 0
+    padding: 0
+header
+    .logo
+        @include flex(center, center, column)
+        img
+            width: 80px
+            margin: 10px 0
+        h1
+            font-size: 36px
+            .red
+                color: red
+    
+@media (max-width:500px)
+    header
+        .logo
+            img
+                width: 60px
+            h1
+                font-size: 28px

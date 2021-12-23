@@ -1,0 +1,68 @@
+<form #f="ngForm">
+    <div class="form_group">
+        <p class="header">Full name<span class="required">*</span></p>
+        <div class="input_group">
+            <div class="input_blok">
+                <input type="text" id="last_name" name="first_name" ngModel #first_name = "ngModel">
+                <label for="first_name">First name</label>
+            </div>
+
+            <div class="input_blok">
+                <input type="text" id="last_name" name="last_name" ngModel #last_name = "ngModel">
+                <label for="last_name">Last name</label>
+            </div>
+        </div>
+    </div>
+
+    <div class="form_group">
+        <p class="header">Address<span class="required">*</span></p>
+        <div class="input_blok">
+            <input type="text" id="street_adrress" name="street_adrress" ngModel #street_adrress = "ngModel">
+            <label for="street_adrress">Street Address</label>
+        </div>
+
+        <div class="input_blok">
+            <input type="text" id="street_adrress2" name="street_adrress2" ngModel #street_adrress2 = "ngModel">
+            <label for="street_adrress2">Street Address Line 2</label>
+        </div>
+
+        <div class="input_group">
+            <div class="input_blok">
+                <input type="text" id="city" name="city" ngModel #city = "ngModel">
+                <label for="city">City</label>
+            </div>
+
+            <div class="input_blok">
+                <input type="text" id="state" name="state" ngModel #state = "ngModel">
+                <label for="state">State / Province</label>
+            </div>
+        </div>
+
+        <div class="input_blok">
+            <input type="text" id="postal" name="postal" ngModel #postal = "ngModel">
+            <label for="postal">Postal / Zip Code</label>
+        </div>
+    </div>
+
+    <div class="form_group">
+        <p class="header">Phone number<span class="required">*</span></p>
+        <div class="input_group">
+            <div class="input_blok">
+                <input type="text" id="phone" placeholder="(000) 000-0000" name="phone" ngModel #phone = "ngModel">
+            </div>
+        </div>
+    </div>
+
+
+    <div class="form_group">
+        <p class="header">E-mail</p>
+        <div class="input_group">
+            <div class="input_blok">
+                <input type="text" id="email" placeholder="ex: email@yahoo.com" name="email" ngModel #email = "ngModel">
+                <label for="first_name">example@example.com</label>
+            </div>
+        </div>
+    </div>
+    <hr width="100%">
+    <button (click) = "onSubmit(f)">Submit</button>
+</form>
