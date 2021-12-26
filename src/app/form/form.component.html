@@ -1,15 +1,25 @@
-<form #f="ngForm">
+<form [formGroup]="userForm">
     <div class="form_group">
         <p class="header">Full name<span class="required">*</span></p>
         <div class="input_group">
             <div class="input_blok">
-                <input type="text" id="last_name" name="first_name" ngModel #first_name = "ngModel">
-                <label for="first_name">First name</label>
+                <input type="text" id="first_name" formControlName="first_name" required>
+                <label for="first_name">
+                    <div *ngIf="first_name?.invalid && (first_name?.dirty || first_name?.touched)">
+                        <section *ngIf="first_name?.errors?.['required']" class="error">First name field is required !</section>
+                    </div>
+                    <section>First name</section>
+                </label>
             </div>
 
             <div class="input_blok">
-                <input type="text" id="last_name" name="last_name" ngModel #last_name = "ngModel">
-                <label for="last_name">Last name</label>
+                <input type="text" id="last_name" formControlName="last_name" required>
+                <label for="last_name">
+                    <div *ngIf="last_name?.invalid && (last_name?.dirty || last_name?.touched)">
+                        <section *ngIf="last_name?.errors?.['required']" class="error">Last name field is required !</section>
+                    </div>
+                    <section>Last name</section>
+                </label>
             </div>
         </div>
     </div>
@@ -17,30 +27,55 @@
     <div class="form_group">
         <p class="header">Address<span class="required">*</span></p>
         <div class="input_blok">
-            <input type="text" id="street_adrress" name="street_adrress" ngModel #street_adrress = "ngModel">
-            <label for="street_adrress">Street Address</label>
+            <input type="text" id="street_address" formControlName="street_address" required>
+            <label for="street_address">
+                <div *ngIf="street_address?.invalid && (street_address?.dirty || street_address?.touched)">
+                    <section *ngIf="street_address?.errors?.['required']" class="error">Street address field is required !</section>
+                </div>
+                <section>Street address</section>
+            </label>
         </div>
 
         <div class="input_blok">
-            <input type="text" id="street_adrress2" name="street_adrress2" ngModel #street_adrress2 = "ngModel">
-            <label for="street_adrress2">Street Address Line 2</label>
+            <input type="text" id="street_address2" formControlName="street_address2" required>
+            <label for="street_address2">
+                <div *ngIf="street_address2?.invalid && (street_address2?.dirty || street_address2?.touched)">
+                    <section *ngIf="street_address2?.errors?.['required']" class="error">Street address 2 field is required !</section>
+                </div>
+                <section>Street address 2</section>
+            </label>
         </div>
 
         <div class="input_group">
             <div class="input_blok">
-                <input type="text" id="city" name="city" ngModel #city = "ngModel">
-                <label for="city">City</label>
+                <input type="text" id="city" formControlName="city" required>
+                <label for="city">
+                    <div *ngIf="city?.invalid && (city?.dirty || city?.touched)">
+                        <section *ngIf="city?.errors?.['required']" class="error">City field is required !</section>
+                    </div>
+                    <section>City</section>
+                </label>
             </div>
 
             <div class="input_blok">
-                <input type="text" id="state" name="state" ngModel #state = "ngModel">
-                <label for="state">State / Province</label>
+                <input type="text" id="state" formControlName="state" required>
+                <label for="state">
+                    <div *ngIf="state?.invalid && (state?.dirty || state?.touched)">
+                        <section *ngIf="state?.errors?.['required']" class="error">State / Province field is required !</section>
+                    </div>
+                    <section>State / Province</section>
+                </label>
             </div>
         </div>
 
         <div class="input_blok">
-            <input type="text" id="postal" name="postal" ngModel #postal = "ngModel">
-            <label for="postal">Postal / Zip Code</label>
+            <input type="text" id="postal" formControlName="postal" required>
+            <label for="postal">
+                <div *ngIf="postal?.invalid && (postal?.dirty || postal?.touched)">
+                    <section *ngIf="postal?.errors?.['required']" class="error">Postal / Zip code field is required !</section>
+                </div>
+                <section>Postal / Zip code</section>
+            </label>
         </div>
     </div>
 
@@ -48,7 +83,12 @@
         <p class="header">Phone number<span class="required">*</span></p>
         <div class="input_group">
             <div class="input_blok">
-                <input type="text" id="phone" placeholder="(000) 000-0000" name="phone" ngModel #phone = "ngModel">
+                <input type="text" id="phone" placeholder="(000) 000-0000" formControlName="phone" required>
+                <label for="phone">
+                    <div *ngIf="phone?.invalid && (phone?.dirty || phone?.touched)">
+                        <section *ngIf="phone?.errors?.['required']" class="error">Phone field is required !</section>
+                    </div>
+                </label>
             </div>
         </div>
     </div>
@@ -58,11 +98,14 @@
         <p class="header">E-mail</p>
         <div class="input_group">
             <div class="input_blok">
-                <input type="text" id="email" placeholder="ex: email@yahoo.com" name="email" ngModel #email = "ngModel">
+                <input type="email" id="email" placeholder="ex: email@yahoo.com" formControlName="email">
                 <label for="first_name">example@example.com</label>
             </div>
         </div>
     </div>
     <hr width="100%">
-    <button (click) = "onSubmit(f)">Submit</button>
+    <div class="button_blok">
+        <section class="form_error" *ngIf="show_form_error">All Field On The Form Mus Be Filled</section>
+        <button (click) = "onSubmit()">Submit</button>
+    </div>
 </form>
