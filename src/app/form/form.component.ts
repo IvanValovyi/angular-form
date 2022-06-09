@@ -22,6 +22,7 @@ export class FormComponent implements OnInit {
   }
 
   show_form_error = false
+  show_form_sent = false
   userForm: FormGroup = new FormGroup({})
 
   onSubmit(){
@@ -29,6 +30,7 @@ export class FormComponent implements OnInit {
         console.log(this.userForm.value)
         this.userForm.reset()
         this.show_form_error = false
+        this.show_form_sent = true
     } else {
         console.log('ERROR')
         this.show_form_error = true

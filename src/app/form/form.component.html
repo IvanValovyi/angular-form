@@ -106,6 +106,7 @@
     <hr width="100%">
     <div class="button_blok">
         <section class="form_error" *ngIf="show_form_error">All Field On The Form Mus Be Filled</section>
+        <section class="form_sent" *ngIf="show_form_sent">Form Sent !</section>
         <button (click) = "onSubmit()">Submit</button>
     </div>
 </form>
